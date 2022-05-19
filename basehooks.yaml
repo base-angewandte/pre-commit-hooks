@@ -37,11 +37,14 @@ repos:
     hooks:
       - id: bandit
         exclude: tests.py
+  - repo: https://github.com/hadolint/hadolint
+    rev: master
+    hooks:
+      - id: hadolint-docker
   - repo: https://github.com/IamTheFij/docker-pre-commit
     rev: v2.1.0
     hooks:
       - id: docker-compose-check
-      - id: hadolint
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.6.2
     hooks:
