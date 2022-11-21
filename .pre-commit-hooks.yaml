@@ -1,5 +1,5 @@
--   id: base-hooks
-    name: general base hooks
-    language: script
-    entry: ./run-base-hooks
-    verbose: true
+- id: base-hooks
+  name: general base hooks
+  language: script
+  entry: ./run-base-hooks
+  verbose: true
