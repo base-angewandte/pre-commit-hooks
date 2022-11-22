@@ -2,6 +2,7 @@
   name: general base hooks
   language: script
   entry: ./run-base-hooks
+  stages: [commit]
   verbose: true
 - id: base-commit-msg-hooks
   name: base commit-msg hooks
