@@ -1,5 +1,12 @@
--   id: base-hooks
-    name: general base hooks
-    language: script
-    entry: ./run-base-hooks
-    verbose: true
+- id: base-hooks
+  name: general base hooks
+  language: script
+  entry: ./run-base-hooks
+  stages: [commit]
+  verbose: true
+- id: base-commit-msg-hooks
+  name: base commit-msg hooks
+  language: script
+  entry: ./run-commit-msg-hooks
+  stages: [commit-msg]
+  verbose: true
