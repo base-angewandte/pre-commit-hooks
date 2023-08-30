@@ -58,3 +58,22 @@ repos:
     rev: v3.7.0-1
     hooks:
       - id: shfmt-docker
+  - repo: https://github.com/jazzband/pip-tools
+    rev: 7.3.0
+    hooks:
+      - id: pip-compile
+        name: pip-compile requirements.in
+        args: [ requirements.in ]
+        files: ^requirements\.(in|txt)$
+      - id: pip-compile
+        name: pip-compile requirements-dev.in
+        args: [ requirements-dev.in ]
+        files: ^requirements-dev\.(in|txt)$
+      - id: pip-compile
+        name: pip-compile src/requirements.in
+        args: [ src/requirements.in ]
+        files: ^src\/requirements\.(in|txt)$
+      - id: pip-compile
+        name: pip-compile src/requirements-dev.in
+        args: [ src/requirements-dev.in ]
+        files: ^src\/requirements-dev\.(in|txt)$
