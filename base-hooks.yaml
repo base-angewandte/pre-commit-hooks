@@ -77,3 +77,7 @@ repos:
         name: pip-compile src/requirements-dev.in
         args: [ src/requirements-dev.in ]
         files: ^src\/requirements-dev\.(in|txt)$
+      - id: pip-compile
+        name: pip-compile docker/docs/requirements.in
+        args: [ docker/docs/requirements.in ]
+        files: ^docker\/docs\/requirements\.(in|txt)$
