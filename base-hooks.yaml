@@ -2,7 +2,7 @@ default_language_version:
   python: python3
 repos:
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.3.1
+    rev: v3.10.1
     hooks:
       - id: pyupgrade
         args: [--py39-plus]
@@ -11,7 +11,7 @@ repos:
     hooks:
       - id: isort
   - repo: https://github.com/psf/black
-    rev: 22.12.0
+    rev: 23.7.0
     hooks:
       - id: black
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -21,19 +21,19 @@ repos:
       - id: end-of-file-fixer
       - id: check-yaml
   - repo: https://github.com/myint/docformatter
-    rev: v1.5.1
+    rev: v1.7.5
     hooks:
       - id: docformatter
         args: [--in-place]
   - repo: https://github.com/PyCQA/flake8
-    rev: 6.0.0
+    rev: 6.1.0
     hooks:
       - id: flake8
         additional_dependencies:
         - flake8-bugbear
         - pep8-naming
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.4
+    rev: 1.7.5
     hooks:
       - id: bandit
         exclude: tests.py
@@ -42,11 +42,11 @@ repos:
     hooks:
       - id: hadolint-docker
   - repo: https://github.com/IamTheFij/docker-pre-commit
-    rev: v2.1.1
+    rev: v3.0.1
     hooks:
       - id: docker-compose-check
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.7.1
+    rev: v3.0.3
     hooks:
       - id: prettier
         types_or: [markdown, yaml]
@@ -55,6 +55,29 @@ repos:
     hooks:
       - id: shellcheck
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.6.0-1
+    rev: v3.7.0-1
     hooks:
       - id: shfmt-docker
+  - repo: https://github.com/jazzband/pip-tools
+    rev: 7.3.0
+    hooks:
+      - id: pip-compile
+        name: pip-compile requirements.in
+        args: [ requirements.in ]
+        files: ^requirements\.(in|txt)$
+      - id: pip-compile
+        name: pip-compile requirements-dev.in
+        args: [ requirements-dev.in ]
+        files: ^requirements-dev\.(in|txt)$
+      - id: pip-compile
+        name: pip-compile src/requirements.in
+        args: [ src/requirements.in ]
+        files: ^src\/requirements\.(in|txt)$
+      - id: pip-compile
+        name: pip-compile src/requirements-dev.in
+        args: [ src/requirements-dev.in ]
+        files: ^src\/requirements-dev\.(in|txt)$
+      - id: pip-compile
+        name: pip-compile docker/docs/requirements.in
+        args: [ docker/docs/requirements.in ]
+        files: ^docker\/docs\/requirements\.(in|txt)$
