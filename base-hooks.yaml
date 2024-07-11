@@ -37,26 +37,26 @@ repos:
     rev: v3.8.0-1
     hooks:
       - id: shfmt-docker
-  - repo: https://github.com/jazzband/pip-tools
-    rev: 7.4.1
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.2.13
     hooks:
       - id: pip-compile
         name: pip-compile requirements.in
-        args: [ requirements.in ]
+        args: [ requirements.in, -o, requirements.txt ]
         files: ^requirements\.(in|txt)$
       - id: pip-compile
         name: pip-compile requirements-dev.in
-        args: [ requirements-dev.in ]
+        args: [ requirements-dev.in, -o, requirements-dev.txt ]
         files: ^requirements-dev\.(in|txt)$
       - id: pip-compile
         name: pip-compile src/requirements.in
-        args: [ src/requirements.in ]
+        args: [ src/requirements.in, -o, src/requirements.txt ]
         files: ^src\/requirements\.(in|txt)$
       - id: pip-compile
         name: pip-compile src/requirements-dev.in
-        args: [ src/requirements-dev.in ]
+        args: [ src/requirements-dev.in, -o, src/requirements-dev.txt ]
         files: ^src\/requirements-dev\.(in|txt)$
       - id: pip-compile
         name: pip-compile docker/docs/requirements.in
-        args: [ docker/docs/requirements.in ]
+        args: [ docker/docs/requirements.in, -o, docker/docs/requirements.txt ]
         files: ^docker\/docs\/requirements\.(in|txt)$
