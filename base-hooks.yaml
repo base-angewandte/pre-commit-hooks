@@ -2,17 +2,19 @@ default_language_version:
   python: python3
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.0
+    rev: v0.12.3
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [ --fix ]
       - id: ruff-format
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
+      - id: check-json
+      - id: check-toml
       - id: check-yaml
-  - repo: https://github.com/myint/docformatter
-    rev: "06907d0267368b49b9180eed423fae5697c1e909"
+  - repo: https://github.com/PyCQA/docformatter
+    rev: v1.7.7
     hooks:
       - id: docformatter
         args: [--in-place]
@@ -28,17 +30,18 @@ repos:
     rev: v3.1.0
     hooks:
       - id: prettier
-        types_or: [markdown, yaml]
+        additional_dependencies: ["prettier@3.6.2"]
+        types_or: [css, javascript, markdown, yaml]
   - repo: https://github.com/koalaman/shellcheck-precommit
     rev: v0.10.0
     hooks:
       - id: shellcheck
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.8.0-1
+    rev: v3.12.0-1
     hooks:
       - id: shfmt-docker
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.2.13
+    rev: 0.7.20
     hooks:
       - id: pip-compile
         name: pip-compile requirements.in
