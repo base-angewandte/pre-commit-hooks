@@ -21,7 +21,12 @@ repos:
   - repo: https://github.com/hadolint/hadolint
     rev: v2.12.0
     hooks:
+      # skipped by default because docker -> better dev UX
+      - id: hadolint
+        name: Lint Dockerfiles (CI)
+      # skipped in CI because doesn't work in runner container
       - id: hadolint-docker
+        name: Lint Dockerfiles (local)
   - repo: https://github.com/IamTheFij/docker-pre-commit
     rev: v3.0.1
     hooks:
