@@ -3,10 +3,22 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.realpath(__file__))
+CI_ENVVAR = 'BASE_ANGEWANDTE_CI'
+CI_SKIP = ''
+LOCAL_SKIP = ''
 
 
 def main():
     cfg = os.path.join(HERE, 'base-hooks.yaml')
+
+    ci = os.getenv(CI_ENVVAR, '0').lower() in ('1', 'yes', 'true')
+    extra_skip = CI_SKIP if ci else LOCAL_SKIP
+    os.environ['SKIP'] = ','.join((
+        part
+        for part in (os.getenv('SKIP', None), extra_skip)
+        if part
+    ))
+
     cmd = ['pre-commit', 'run', '--config', cfg, '--files'] + sys.argv[1:]
     os.execvp(cmd[0], cmd)
 
