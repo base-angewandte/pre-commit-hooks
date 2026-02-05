@@ -4,8 +4,8 @@ import sys
 
 HERE = os.path.dirname(os.path.realpath(__file__))
 CI_ENVVAR = 'BASE_ANGEWANDTE_CI'
-CI_SKIP = 'hadolint-docker'
-LOCAL_SKIP = 'hadolint'
+CI_SKIP = 'hadolint-docker,shfmt-docker,shellcheck'
+LOCAL_SKIP = 'hadolint,shfmt,shellcheck-system'
 
 
 def main():
