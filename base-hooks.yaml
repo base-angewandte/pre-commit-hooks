@@ -13,6 +13,11 @@ repos:
       - id: check-json
       - id: check-toml
       - id: check-yaml
+        exclude: compose.*.yaml
+      - id: check-yaml
+        name: check-compose-yaml
+        files: compose.*.yaml
+        args: [--unsafe]
   - repo: https://github.com/PyCQA/docformatter
     rev: v1.7.7
     hooks:
