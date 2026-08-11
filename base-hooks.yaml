@@ -2,13 +2,13 @@ default_language_version:
   python: python3
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.12.3
+    rev: v0.16.2
     hooks:
       - id: ruff-check
         args: [ --fix ]
       - id: ruff-format
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-json
       - id: check-toml
@@ -19,12 +19,12 @@ repos:
         files: compose.*.yaml
         args: [--unsafe]
   - repo: https://github.com/PyCQA/docformatter
-    rev: v1.7.7
+    rev: v1.7.8
     hooks:
       - id: docformatter
         args: [--in-place]
   - repo: https://github.com/hadolint/hadolint
-    rev: v2.12.0
+    rev: v2.15.1
     hooks:
       # skipped by default because docker -> better dev UX
       - id: hadolint
@@ -40,18 +40,18 @@ repos:
     rev: v3.1.0
     hooks:
       - id: prettier
-        additional_dependencies: ["prettier@3.6.2"]
+        additional_dependencies: ["prettier@3.9.5"]
         types_or: [css, javascript, markdown, yaml]
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.10.0.1
+    rev: v0.11.0.1
     hooks:
       - id: shellcheck
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.12.0-1
+    rev: v3.13.1-1
     hooks:
       - id: shfmt
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.7.20
+    rev: 0.12.3
     hooks:
       - id: pip-compile
         name: pip-compile requirements.in
