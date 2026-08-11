@@ -42,7 +42,7 @@ repos:
         name: prettier
         entry: prettier --write --ignore-unknown
         language: node
-        types_or: [ css, javascript, markdown, yaml ]
+        types_or: [ css, javascript, json, markdown, yaml ]
         additional_dependencies: ["prettier@3.9.5"]
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.11.0.1
